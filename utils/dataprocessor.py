@@ -17,8 +17,8 @@ class DataProcessor:
     ):
         if (
             os.path.exists(os.path.join(processed_data_path, f"data.pt"))
-            and os.path.exists(os.path.join(processed_data_path, f"y_info_{i}.pkl"))
-            and os.path.exists(os.path.join(processed_data_path, f"X_info_{i}.pkl"))
+            and os.path.exists(os.path.join(processed_data_path, f"y_info.pkl"))
+            and os.path.exists(os.path.join(processed_data_path, f"X_info.pkl"))
         ):
             self.data = None
             print("fast load")

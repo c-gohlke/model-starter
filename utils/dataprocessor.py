@@ -13,7 +13,7 @@ class DataProcessor:
         processed_data_path,
         processed_data_out_path,
         n_cross_v,
-        test_withhold,
+        test_index,
     ):
         if (
             os.path.exists(os.path.join(processed_data_path, f"data.pt"))
@@ -53,7 +53,7 @@ class DataProcessor:
 
         self.n_cross_v = n_cross_v
         self.set_indices = self.get_cv_indexes()
-        self.test_withhold = test_withhold
+        self.test_index = test_index
 
     def add_features(self, df):
         # TODO
@@ -74,15 +74,15 @@ class DataProcessor:
 
     def get_train_data(self):
         train_indices = (
-            self.set_indices[: self.test_withhold]
-            + self.set_indices[self.test_withhold + 1 :]
+            self.set_indices[: self.test_index]
+            + self.set_indices[self.test_index + 1 :]
         )
         train_indices = np.concatenate(train_indices)
         train_data = self.data[train_indices]
         return train_data.reshape(-1)
 
     def get_test_data(self):
-        test_indices = self.set_indices[self.test_withhold]
+        test_indices = self.set_indices[self.test_index]
         test_data = self.data[test_indices]
         return test_data.reshape(-1)
 

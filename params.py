@@ -3,7 +3,7 @@ import os
 SMALL_DS = True
 
 BASE_PATH = os.getcwd()
-OG_DATA_NAME = None  # TODO
+OG_DATA_NAME = "None"
 OG_DATA_PATH = os.path.join(BASE_PATH, OG_DATA_NAME)
 PROCESSED_DATA_PATH = os.path.join(BASE_PATH, "out", "data")
 PROCESSED_DATA_OUT_PATH = os.path.join(BASE_PATH, "out", "data")

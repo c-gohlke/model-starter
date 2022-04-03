@@ -27,7 +27,6 @@ class Model:
 
         self.train_data_loaded = False
         self.test_data_loaded = False
-        self.val_data_loaded = False
 
         self.train_set = None
         self.test_sets = None
@@ -47,7 +46,7 @@ class Model:
         load_path = os.path.join(
             MODEL_LOAD_PATH,
             self.params["load_name"],
-            f"k-cv_{self.params['test_withhold']}.pt",
+            f"k-cv_{self.params['cross_validation']['test_index']}.pt",
         )
         if os.path.exists(load_path):
             checkpoint = torch.load(load_path, map_location=torch.device(self.device))
